@@ -18,10 +18,7 @@ setuptools.setup(
     long_description = readme(),
     long_description_content_type="text/markdown",
     url='https://github.com/ajayarunachalam/msda',
-    install_requires=[
-          'matplotlib', 'numpy', 'datetime', 'pandas', 'statistics', 'IPython', 'ipywidgets',
-
-      ],
+    install_requires=['matplotlib', 'numpy', 'datetime', 'pandas', 'statistics', 'IPython', 'ipywidgets'],
     license='MIT',
     include_package_data=True,
     author='Ajay Arunachalam',
