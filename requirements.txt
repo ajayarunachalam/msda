@@ -1,0 +1,7 @@
+pandas
+numpy>=1.17
+matplotlib
+IPython
+ipywidgets
+datetime
+statistics
