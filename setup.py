@@ -22,5 +22,4 @@ setuptools.setup(
     license='MIT',
     include_package_data=True,
     author='Ajay Arunachalam',
-    author_email='ajay.arunachalam08@gmail.com',
-    )
+    author_email='ajay.arunachalam08@gmail.com')
