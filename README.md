@@ -1,3 +1,7 @@
+## Overview 
+
+Prototype for unsupervised feature selection from multi-dimensional heterogeneous/homogeneous time series multi-sensor data. Intuitive representation of the framework is as shown below.
+
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/conceptual_framework_msda.png)
 
 # MSDA 1.0.0
@@ -7,23 +11,23 @@ MSDA is an open source `low-code` Multi-Sensor Data Analysis library in Python t
 
 
 The package includes:-
-1) Time series analysis
-2) The variation of each sensor column wrt time (increasing, decreasing, equal)
-3) How each column values varies wrt other column, and the maximum variation ratio between each column wrt other column
-4) Relationship establishment with trend array to identify most appropriate sensor
-5) User can select window length and then check average value and standard deviation across each window for each sensor column
-6) It provides count of growth/decay value for each sensor column values above or below a threshold value
+1) Time series analysis.
+2) The variation of each sensor column wrt time (increasing, decreasing, equal).
+3) How each column values varies wrt other column, and the maximum variation ratio between each column wrt other column.
+4) Relationship establishment with trend array to identify most appropriate sensor.
+5) User can select window length and then check average value and standard deviation across each window for each sensor column.
+6) It provides count of growth/decay value for each sensor column values above or below a threshold value.
 7) Feature Engineering 
-    a) Features involving trend of values across various aggregation windows: change and rate of change in average, std. deviation across window
-    b) Ratio of changes, growth rate with std. deviation
-    c) Change over time
-    d) Rate of change over time
-    e) Growth or decay
-    f) Rate of growth or decay
-    g) Count of values above or below a threshold value 
+    a) Features involving trend of values across various aggregation windows: change and rate of change in average, std. deviation across window.
+    b) Ratio of changes, growth rate with std. deviation.
+    c) Change over time.
+    d) Rate of change over time.
+    e) Growth or decay.
+    f) Rate of growth or decay.
+    g) Count of values above or below a threshold value.
 
 
-MSDA is `simple`, `easy to use` and `deployment ready`. 
+MSDA is `simple`, `easy to use` and `low-code`. 
 
 ## Features
 
