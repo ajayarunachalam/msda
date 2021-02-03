@@ -1,4 +1,4 @@
-![alt text](https://github.com/ajayarunachalam/msda/blob/master/conceptual_framework_msda.png)
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/conceptual_framework_msda.png)
 
 # MSDA 1.0.0
 
@@ -27,11 +27,11 @@ MSDA is `simple`, `easy to use` and `deployment ready`.
 
 ## Features
 
-![alt text](https://github.com/ajayarunachalam/msda/blob/master/features_msda.png)
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/features_msda.png)
 
 ## Workflow
 
-![alt text](https://github.com/ajayarunachalam/msda/blob/master/flowchart_msda.png)
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/flowchart_msda.png)
 
 ## Installation
 The easiest way to install pycaret is using pip. 
