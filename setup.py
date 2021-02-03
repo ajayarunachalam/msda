@@ -5,7 +5,7 @@ from setuptools import setup
 from msda.utils import version
 
 def readme():
-    with open('README.md') as f:
+    with open('README.md','r', encoding='utf-8') as f:
         README = f.read()
     return README
 
