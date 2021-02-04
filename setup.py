@@ -35,7 +35,7 @@ def readme():
         return f.read()
 
 
-setuptools.setup(
+setup(
     name='msda',
     version=__version__,
     packages=["msda","msda.msda","msda.utils"],
