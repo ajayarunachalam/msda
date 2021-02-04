@@ -1,3 +1,8 @@
-__version__ = '1.0.4'
+__version__ = '1.0.5'
 
-from msda.msda import *
+from . import msda
+from . import utils
+
+# To get sub-modules
+from .msda import *
+from .utils import *
