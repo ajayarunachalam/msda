@@ -38,7 +38,7 @@ MSDA is `simple`, `easy to use` and `low-code`.
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/flowchart_msda.png)
 
 ## Installation
-The easiest way to install pycaret is using pip. 
+The easiest way to install msda is using pip. 
 
 ```python
 pip install msda
@@ -49,6 +49,12 @@ $ cd msda
 $ python setup.py install
 ```
 
+## Notebook
+```notebook
+!pip install msda
+```
+Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
+
 ## Dependencies
 Most of the dependencies are installed automatically. But, if not installed when you install MSDA, then these dependencies must be installed as shown below.
 
@@ -56,8 +62,6 @@ Most of the dependencies are installed automatically. But, if not installed when
 pip install pandas
 pip install numpy
 pip install matplotlib
-pip install IPython
-pip install ipywidgets
 pip install datetime
 pip install statistics
 ```
