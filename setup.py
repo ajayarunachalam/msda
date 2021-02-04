@@ -4,7 +4,7 @@
 from distutils.core import setup
 import setuptools
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 def readme():
     with open('README.md', 'r', encoding='utf-8') as f:
@@ -18,7 +18,7 @@ setuptools.setup(
     long_description = readme(),
     long_description_content_type="text/markdown",
     url='https://github.com/ajayarunachalam/msda',
-    install_requires=['matplotlib', 'numpy', 'datetime', 'pandas', 'statistics', 'IPython', 'ipywidgets'],
+    install_requires=['matplotlib', 'numpy', 'datetime', 'pandas', 'statistics'],
     license='MIT',
     include_package_data=True,
     author='Ajay Arunachalam',
