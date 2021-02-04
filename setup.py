@@ -38,7 +38,7 @@ def readme():
 setup(
     name='msda',
     version=__version__,
-    packages=["msda","msda.msda","msda.utils"],
+    packages=["msda"],
     description='MSDA - An open source, low-code time-series multi-sensor data analysis library in Python.',
     long_description = readme(),
     long_description_content_type="text/markdown",
