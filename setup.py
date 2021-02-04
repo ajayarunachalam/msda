@@ -3,8 +3,9 @@
 
 from distutils.core import setup
 import setuptools
+from setuptools import find_packages
 
-__version__ = '1.0.5'
+__version__ = '1.0.6'
 
 def readme():
     with open('README.md', 'r', encoding='utf-8') as f:
@@ -14,6 +15,7 @@ def readme():
 setuptools.setup(
     name='msda',
     version=__version__,
+    packages=find_packages(),
     description='MSDA - An open source, low-code time-series multi-sensor data analysis library in Python.',
     long_description = readme(),
     long_description_content_type="text/markdown",
