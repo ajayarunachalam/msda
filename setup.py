@@ -4,7 +4,7 @@
 from distutils.core import setup
 import setuptools
 
-__version__ = '1.0.3'
+__version__ = '1.0.4'
 
 def readme():
     with open('README.md', 'r', encoding='utf-8') as f:
