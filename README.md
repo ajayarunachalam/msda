@@ -4,7 +4,7 @@ Prototype for unsupervised feature selection from multi-dimensional heterogeneou
 
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/conceptual_framework_msda.png)
 
-# MSDA 1.0.0
+# MSDA 1.0.7
 
 ## What is MDSA?
 MSDA is an open source `low-code` Multi-Sensor Data Analysis library in Python that aims to reduce the hypothesis to insights cycle time in a time-series multi-sensor data analysis & experiments. It enables users to perform end-to-end proof-of-concept experiments quickly and efficiently. The module identifies events in the multidimensional time series by capturing the variation and trend to establish relationship aimed towards identifying the correlated features helping in feature selection from raw sensor signals.
@@ -67,7 +67,7 @@ pip install statistics
 ```
 
 ## Python:
-Installation is only supported on 64-bit version of Python.
+Installation is only supported on 64-bit version of Python. Tested with numpy version '1.18.3' and pandas <= '1.0.5'
 
 ## Important Links
 - Example Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
