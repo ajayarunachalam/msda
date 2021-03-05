@@ -76,6 +76,7 @@ $ python setup.py install
 !pip install msda
 ```
 Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
+Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/tree/master/demo1.ipynb
 
 ## Dependencies
 Most of the dependencies are installed automatically. But, if not installed when you install MSDA, then these dependencies must be installed as shown below.
@@ -100,7 +101,7 @@ Installation is only supported on 64-bit version of Python. Tested on numpy vers
 
 ## Important Links
 - Example Unsupervised Feature Selection Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
-- Example Unsupervised Anomaly Detector Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo1.ipynb
+- Example Unsupervised Anomaly Detector & Explainable AI Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo1.ipynb
 
 
 ## Who should use MSDA?
