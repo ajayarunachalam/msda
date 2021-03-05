@@ -1,5 +1,12 @@
-pandas
-numpy>=1.17
+pandas==1.0.5
+numpy==1.18.3
 matplotlib
 datetime
 statistics
+torch==1.4.0
+seaborn==0.9.0
+sklearn
+scipy
+shap==0.39.0
+keras==2.0.8
+ipywidgets==7.5.1

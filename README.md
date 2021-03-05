@@ -1,13 +1,23 @@
 ## Overview 
 
-Prototype for unsupervised feature selection from multi-dimensional heterogeneous/homogeneous time series multi-sensor data. Intuitive representation of the framework is as shown below.
+Prototype for unsupervised feature selection and/or unsupervised deep convolutional neural network & lstm autoencoders based real-time anomaly detection from high-dimensional heterogeneous/homogeneous time series multi-sensor data. Prototype of Explainable AI for the built time-series predictor.
 
-![alt text](https://github.com/ajayarunachalam/msda/blob/main/conceptual_framework_msda.png)
+Intuitive representation of the unsupervised feature selection is as shown below.
 
-# MSDA 1.0.7
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/conceptual_framework_msda_new.png)
+
+Intuitive representation of the unsupervised real-time point anomalies detection is as shown below.
+
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/anomalies_msda.png)
+
+From local explanations to global understanding with explainable AI for trees - motivation from here - https://www.nature.com/articles/s42256-019-0138-9
+
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/shap_conceptual.png), Image credits - https://github.com/slundberg/shap
+
+# MSDA 1.0.8
 
 ## What is MDSA?
-MSDA is an open source `low-code` Multi-Sensor Data Analysis library in Python that aims to reduce the hypothesis to insights cycle time in a time-series multi-sensor data analysis & experiments. It enables users to perform end-to-end proof-of-concept experiments quickly and efficiently. The module identifies events in the multidimensional time series by capturing the variation and trend to establish relationship aimed towards identifying the correlated features helping in feature selection from raw sensor signals.
+MSDA is an open source `low-code` Multi-Sensor Data Analysis library in Python that aims to reduce the hypothesis to insights cycle time in a time-series multi-sensor data analysis & experiments. It enables users to perform end-to-end proof-of-concept experiments quickly and efficiently. The module identifies events in the multidimensional time series by capturing the variation and trend to establish relationship aimed towards identifying the correlated features helping in feature selection from raw sensor signals. Also, to precisely detect the anomalies in real-time streaming data an unsupervised deep convolutional neural network & also a lstm autoencoders based detectors are designed to run on GPU/CPU. Finally, a game theoretic approach is used to explain the output of the built anomaly detector model. 
 
 
 The package includes:-
@@ -25,17 +35,29 @@ The package includes:-
     e) Growth or decay.
     f) Rate of growth or decay.
     g) Count of values above or below a threshold value.
+8) ```diff @@ Unsupervised time-series anomaly detector. @@```
+9) ```diff @@ Game theoretic approach to explain the time-series data model. @@```
 
 
 MSDA is `simple`, `easy to use` and `low-code`. 
 
 ## Features
 
-![alt text](https://github.com/ajayarunachalam/msda/blob/main/features_msda.png)
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/features_msda_new.png)
 
-## Workflow
+## Unsupervised FS Workflow
 
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/flowchart_msda.png)
+
+## Unsupervised time-series anomaly detector workflow
+
+```diff + Deep Convolutional Neural Network ```
+
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/deepCNN.gif) inspiration from this IEEE paper - https://ieeexplore.ieee.org/document/8581424
+
+```diff - LSTM Autoencoder ```
+
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/lstm_ae.png) inspiration from here - https://arxiv.org/pdf/1809.10717.pdf
 
 ## Installation
 The easiest way to install msda is using pip. 
@@ -64,13 +86,21 @@ pip install numpy
 pip install matplotlib
 pip install datetime
 pip install statistics
+pip install torch
+pip install seaborn
+pip install sklearn
+pip install scipy
+pip install shap
+pip install keras
+pip install ipywidgets
 ```
 
 ## Python:
-Installation is only supported on 64-bit version of Python. Tested with numpy version '1.18.3' and pandas <= '1.0.5'
+Installation is only supported on 64-bit version of Python. Tested on numpy version '1.18.3', pandas <= '1.0.5', torch == 1.4.0, keras == 2.0.8, seaborn = '0.9.0', shap = '0.39.0', ipywidgets == 7.5.1
 
 ## Important Links
-- Example Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
+- Example Unsupervised Feature Selection Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
+- Example Unsupervised Anomaly Detector Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo1.ipynb
 
 
 ## Who should use MSDA?

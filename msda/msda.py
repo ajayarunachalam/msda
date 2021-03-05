@@ -410,6 +410,7 @@ class FeatureSelection:
         cols = list(df.columns)[2:]
         #columns = df.iloc[:,2:].values.tolist()
         columns =  df.iloc[:,2:].aggregate(lambda x: [x.tolist()], axis=0).map(lambda x:x[0])
+        #print(len(columns))
         time_min = []
         initial=0
         for i in range((df.shape[0])):
@@ -424,7 +425,7 @@ class FeatureSelection:
         for i in range(0,len(columns)):
             m,b=best_fit_slope_and_intercept(np.array(time_min),np.array(columns[i]))
             regression_line = [(m*x)+b for x in np.array(time_min)]
-            plt.subplot(3,2,i+1)
+            plt.subplot((len(columns)/2)+1,2,i+1) # plt.subplot(3,2,i+1) plt.subplot(3,(len(columns)/2)+1,i+1)
             plt.scatter(time_min,columns[i], color='red')
             plt.plot(time_min,regression_line,'b-')
             plt.title('Time vs {}'.format(list(df.columns)[i+2]))
@@ -434,7 +435,7 @@ class FeatureSelection:
         #plt.show()
         plt.savefig('slope_with_max_variation.pdf') #, bbox_inches='tight'    
 
-
+    # function to estimate change over time & create plot for each sensor/features.
     def plot_change_ovr_time(df, feature, logging_interval):
         import numpy as np
         import matplotlib.pyplot as plt
@@ -455,7 +456,7 @@ class FeatureSelection:
         for i in range(0,len(columns)):
             m,b=best_fit_slope_and_intercept(np.array(time_min[1:]),np.array(columns[i]))
             regression_line = [(m*x)+b for x in np.array(time_min[1:])]
-            plt.subplot(2,3,i+1)
+            plt.subplot((len(columns)/2)+1,2,i+1) # plt.subplot(2,3,i+1) plt.subplot(3,(len(columns)/2)+1,i+1)
             plt.scatter(time_min[1:],columns[i],color='red')
             plt.plot(time_min[1:],regression_line,'b-')
             plt.title('Time vs {}'.format(list(df.columns)[i+2]))
@@ -465,6 +466,7 @@ class FeatureSelection:
         #plt.show()
         plt.savefig('slope_with_change_over_time.pdf') #, bbox_inches='tight'
 
+    # function to estimate rate of change over time & create plot across each sensor/features.
     def plot_rate_of_change_ovr_time(df, feature, logging_interval):
         import numpy as np
         import matplotlib.pyplot as plt
@@ -485,7 +487,7 @@ class FeatureSelection:
         for i in range(0,len(columns)):
             m,b=best_fit_slope_and_intercept(np.array(time_min[2:]),np.array(columns[i]))
             regression_line = [(m*x)+b for x in np.array(time_min[2:])]
-            plt.subplot(2,3,i+1)
+            plt.subplot((len(columns)/2)+1,2,i+1) # plt.subplot(2,3,i+1) plt.subplot(3,(len(columns)/2)+1,i+1)
             plt.scatter(time_min[2:],columns[i],color='red')
             plt.plot(time_min[2:],regression_line,'b-')
             plt.title('Rate of Change of {}'.format(list(df.columns)[i+2]))
@@ -495,6 +497,7 @@ class FeatureSelection:
         #plt.show()
         plt.savefig('slope_with_rate_of_change_over_time.pdf') #, bbox_inches='tight'
 
+    # function to estimate growth/decay value & create plot for each sensor/column values
     def plot_growth_decay(df, feature, logging_interval):
         import numpy as np
         import matplotlib.pyplot as plt
@@ -518,7 +521,7 @@ class FeatureSelection:
         for i in range(0,len(columns)):
             m,b=best_fit_slope_and_intercept(np.array(cols[i][:-1]),np.array(columns[i]))
             regression_line = [(m*x)+b for x in np.array(cols[i][:-1])]
-            plt.subplot(2,3,i+1)
+            plt.subplot((len(columns)/2)+1,2,i+1) # plt.subplot(2,3,i+1) plt.subplot(3,(len(columns)/2)+1,i+1)
             plt.scatter(cols[i][:-1],columns[i],color='red')
             plt.plot(cols[i][:-1],regression_line,'b-')
             plt.title('Growth/Decay for {}'.format(list(df.columns)[i+2]))
@@ -528,6 +531,7 @@ class FeatureSelection:
         #plt.show()
         plt.savefig('slope_with_Growth_nd_Decay.pdf') #, bbox_inches='tight'
 
+    # function to estimate rate of growth/decay value & create plot for each sensor/column values
     def plot_rate_growth_decay(df, feature, logging_interval):
         import numpy as np
         import matplotlib.pyplot as plt
@@ -548,7 +552,7 @@ class FeatureSelection:
         for i in range(0,len(columns)):
             m,b=best_fit_slope_and_intercept(np.array(time_min[2:]),np.array(columns[i]))
             regression_line = [(m*x)+b for x in np.array(time_min[2:])]
-            plt.subplot(2,3,i+1)
+            plt.subplot((len(columns)/2)+1,2,i+1) # plt.subplot(2,3,i+1) plt.subplot(3,(len(columns)/2)+1,i+1)
             plt.scatter(time_min[2:],columns[i],color='red')
             plt.plot(time_min[2:],regression_line,'b-')
             plt.title('Growth/Decay Rate for {}'.format(list(df.columns)[i+2]))
@@ -558,6 +562,7 @@ class FeatureSelection:
         #plt.show()
         plt.savefig('slope_with_rate_growth_decay.pdf') #, bbox_inches='tight'
 
+    # function to count of growth/decay value for each sensor/column values above or below a threshold value.
     def Threshold_Counts(df, feature):
         import matplotlib.pyplot as plt
         import matplotlib.patches as mpatches
@@ -579,11 +584,11 @@ class FeatureSelection:
 
 class Preprocessing:
     
-    
+    # function to find missing values
     def missing(x):
         return sum(x.isnull())
 
-
+    # function to convert to datetime object, and extract date & time columns
     def datetimeconversion(df, datetimecolindex):
         import pandas as pd
         import datetime
@@ -602,3 +607,68 @@ class Preprocessing:
         df = df[['Date','Time']+cols[1:]]
         return df
 
+class ExploratoryDataAnalysis:
+    
+    # profiling your dataset
+    def profiling(df): 
+        import pandas_profiling as pp       
+        # To Generate a HTML report file
+        html_report = pp.ProfileReport(df, title="Pandas Profiling Report")
+        html_report.to_file("./profiling_report.html")
+    
+    # filtering outliers
+    def drop_outliers(df, z_threshold):
+        from scipy import stats
+        import numpy as np
+        constraints = df.select_dtypes(include=[np.number]) \
+            .apply(lambda x: np.abs(stats.zscore(x)) < z_threshold) \
+            .all(axis=1)
+        df.drop(df.index[~constraints], inplace=True)
+        return df
+
+    # impute missing values
+    def impute(df, modes:int): #start_sensor_column_index, 
+        import pandas as pd
+        if modes==0:
+            #df.iloc[:,start_sensor_column_index:len(df.columns)].fillna(0, inplace=True)
+            df.fillna(0, inplace=True)
+        elif modes==1:
+            #df.iloc[:,start_sensor_column_index:len(df.columns)].fillna(df.mean(), inplace=True)
+            df.fillna(df.mean(), inplace=True)
+        elif modes==2:
+            #df.iloc[:,start_sensor_column_index:len(df.columns)].fillna(df.median(), inplace=True)
+            df.fillna(df.median(), inplace=True)
+        else:
+            #df.iloc[:,start_sensor_column_index:len(df.columns)].fillna(method='bfill', inplace=True) # backfill / bfill: use next valid observation to fill gap.
+            df.fillna(method='bfill', inplace=True)
+        df.to_csv('df_no_NA.csv')
+        return df
+
+    # drop particular column
+    def drop_columns(df, column_index_to_drop:int):
+        df.drop(df.columns[column_index_to_drop], inplace=True, axis=1)
+        return df
+
+
+class DescriptiveStatistics:
+
+    # Stats for whole dataset
+    def desc_all(df, start_sensor_column_index):
+        print("Descriptive Statistics")
+        return df.iloc[:,start_sensor_column_index:len(df.columns)].describe() # include='all'
+    
+    # Stats with relation to response variable and any feature (tobe used if your data is labeled)
+    def desc_target_feature(df, target, feature):
+        print("Descriptive Statistics by Target-Feature")
+        return df.groupby(target)[feature].describe()
+
+
+class StatisticalEvaluation:
+
+    # Test your data for normality/if the data follows normal distribution
+    def normality_test(df, start_sensor_column_index):
+        from scipy import stats, norm, shapiro, jarque_bera
+        print("Shapiro-Wilk Normality test (W test statistic, the p-value) =======> {}  ".format(shapiro(df.iloc[:,start_sensor_column_index:len(df.columns)])))
+        print("Jarque-Bera Normality test (W test statistic, the p-value) =======> {}".format(jarque_bera(df.iloc[:,start_sensor_column_index:len(df.columns)])))
+
+    
