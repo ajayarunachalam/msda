@@ -35,8 +35,8 @@ The package includes:-
     e) Growth or decay.
     f) Rate of growth or decay.
     g) Count of values above or below a threshold value.
-8) ```diff @@ Unsupervised time-series anomaly detector. @@```
-9) ```diff @@ Game theoretic approach to explain the time-series data model. @@```
+8) ```diff @@ Unsupervised time-series anomaly detector. @@
+9) ```diff @@ Game theoretic approach to explain the time-series data model. @@
 
 
 MSDA is `simple`, `easy to use` and `low-code`. 
@@ -51,11 +51,11 @@ MSDA is `simple`, `easy to use` and `low-code`.
 
 ## Unsupervised time-series anomaly detector workflow
 
-```diff + Deep Convolutional Neural Network ```
+```diff + Deep Convolutional Neural Network 
 
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/deepCNN.gif) inspiration from this IEEE paper - https://ieeexplore.ieee.org/document/8581424
 
-```diff - LSTM Autoencoder ```
+```diff - LSTM Autoencoder 
 
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/lstm_ae.png) inspiration from here - https://arxiv.org/pdf/1809.10717.pdf
 
