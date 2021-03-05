@@ -75,9 +75,9 @@ $ python setup.py install
 ```notebook
 !pip install msda
 ```
-Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
+Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo.ipynb
 
-Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/tree/master/demo1.ipynb
+Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo1.ipynb
 
 ## Dependencies
 Most of the dependencies are installed automatically. But, if not installed when you install MSDA, then these dependencies must be installed as shown below.
@@ -101,8 +101,8 @@ pip install ipywidgets
 Installation is only supported on 64-bit version of Python. Tested on numpy version '1.18.3', pandas <= '1.0.5', torch == 1.4.0, keras == 2.0.8, seaborn = '0.9.0', shap = '0.39.0', ipywidgets == 7.5.1
 
 ## Important Links
-- Example Unsupervised Feature Selection Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
-- Example Unsupervised Anomaly Detector & Explainable AI Demo Notebook : https://github.com/ajayarunachalam/msda/tree/master/demo1.ipynb
+- Example Unsupervised Feature Selection Demo Notebook : https://github.com/ajayarunachalam/msda/blob/main/demo.ipynb
+- Example Unsupervised Anomaly Detector & Explainable AI Demo Notebook : https://github.com/ajayarunachalam/msda/blob/main/demo1.ipynb
 
 
 ## Who should use MSDA?
