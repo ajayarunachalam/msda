@@ -76,6 +76,7 @@ $ python setup.py install
 !pip install msda
 ```
 Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/tree/master/demo.ipynb
+
 Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/tree/master/demo1.ipynb
 
 ## Dependencies
