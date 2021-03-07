@@ -75,9 +75,9 @@ $ python setup.py install
 ```notebook
 !pip install msda
 ```
-Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo.ipynb
+Follow the rest as demonstrated in the demo example for Unsupervised Feature Selection [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo.ipynb
 
-Follow the rest as demonstrated in the demo example [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo1.ipynb
+Follow the rest as demonstrated in the demo example for Unsupervised Deep Anomaly Detectors & Time series predictor as Explainable AI [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo1.ipynb
 
 ## Dependencies
 Most of the dependencies are installed automatically. But, if not installed when you install MSDA, then these dependencies must be installed as shown below.
