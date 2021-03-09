@@ -1,38 +1,43 @@
 class Anamoly:
     import torch
 
+
     MODEL_SELECTED = globals()
     #MODEL_SELECTED = "deepcnn" # Possible Values ['deepcnn', 'lstmaenn']
     LOOKBACK_SIZE = globals()
     #LOOKBACK_SIZE = 10
+    KERNEL_SIZE = globals()
 
     def set_config(**kwargs):
         """
-        Select Model & Window Size : Function to select models from Deep CNN & LSTMAE with Possible Values ['deepcnn', 'lstmaenn'], and time window size
+        Select Model & Window Size : Function to select models from Deep CNN & LSTMAE with Possible Values ['deepcnn', 'lstmaenn'], time window size and kernel size
         """
         for key, value in kwargs.items():
             print("{0} = {1}".format(key, value))
 
         MODEL_SELECTED = list(kwargs.values())[0]
         LOOKBACK_SIZE = list(kwargs.values())[1]
+        KERNEL_SIZE = list(kwargs.values())[2]
 
-        return MODEL_SELECTED, LOOKBACK_SIZE # kwargs
-        #MODEL_SELECTED = MODEL_INPUT
-        #LOOKBACK_SIZE = WINDOW_SIZE
-        #return MODEL_SELECTED, LOOKBACK_SIZE
+        return MODEL_SELECTED, LOOKBACK_SIZE, KERNEL_SIZE # kwargs
+       
 
     assert MODEL_SELECTED == MODEL_SELECTED
     assert LOOKBACK_SIZE == LOOKBACK_SIZE
+    assert KERNEL_SIZE == KERNEL_SIZE
 
-    def read_data(data, column_index_to_drop:int,timestamp_column_index:int): #data_file
+
+    def read_data(data, column_index_to_drop:int,timestamp_column_index:int): 
         """
         Data ingestion : Function to read and formulate the data
         """
         import pandas as pd
-        data.drop(data.columns[column_index_to_drop], inplace=True, axis=1) # 
         df = data.copy()
-        data.set_index(data.columns[timestamp_column_index], inplace=True) # LOCAL_DATE
-        data.index = pd.to_datetime(data.index)
+        data.drop(data.columns[column_index_to_drop], inplace=True, axis=1)  
+        #df = data.copy()
+        df.set_index(df.columns[timestamp_column_index], inplace=True) 
+        df.index = pd.to_datetime(df.index)
+        df.fillna(0, inplace=True)
         data.fillna(0, inplace=True)
         return data, df
 
@@ -68,15 +73,15 @@ class Anamoly:
         """
         Model : Class for DeepCNN model
         """
-        def __init__(self, LOOKBACK_SIZE, DIMENSION):
+        def __init__(self, LOOKBACK_SIZE, DIMENSION, KERNEL_SIZE):
             super(Anamoly.DeepCNN, self).__init__()
             import torch
-            self.conv1d_1_layer = torch.nn.Conv1d(in_channels=LOOKBACK_SIZE, out_channels=16, kernel_size=2) # , stride=2
+            self.conv1d_1_layer = torch.nn.Conv1d(in_channels=LOOKBACK_SIZE, out_channels=16, kernel_size=KERNEL_SIZE) # , stride=2
             self.relu_1_layer = torch.nn.ReLU()
-            self.maxpooling_1_layer = torch.nn.MaxPool1d(kernel_size=1)
-            self.conv1d_2_layer = torch.nn.Conv1d(in_channels=16, out_channels=16, kernel_size=2)
+            self.maxpooling_1_layer = torch.nn.MaxPool1d(kernel_size=(KERNEL_SIZE)-1)
+            self.conv1d_2_layer = torch.nn.Conv1d(in_channels=16, out_channels=16, kernel_size=KERNEL_SIZE)
             self.relu_2_layer = torch.nn.ReLU()
-            self.maxpooling_2_layer = torch.nn.MaxPool1d(kernel_size=1)
+            self.maxpooling_2_layer = torch.nn.MaxPool1d(kernel_size=(KERNEL_SIZE)-1)
             self.flatten_layer = torch.nn.Flatten()
             self.dense_1_layer = torch.nn.Linear(80, 40)
             self.relu_3_layer = torch.nn.ReLU()
@@ -144,7 +149,7 @@ class Anamoly:
         return train_step
 
 
-    def compute(X,Y, LOOKBACK_SIZE, num_of_numerical_features:int, MODEL_SELECTED=MODEL_SELECTED):
+    def compute(X,Y, LOOKBACK_SIZE, num_of_numerical_features:int, MODEL_SELECTED=MODEL_SELECTED, KERNEL_SIZE=KERNEL_SIZE):
         """
             Computation : Find Anomaly using model based computation 
         """
@@ -174,7 +179,7 @@ class Anamoly:
             loss = np.linalg.norm(hypothesis - X, axis=(1,2))
             return loss.reshape(len(loss),1), train_data, model
         elif str(MODEL_SELECTED) == "deepcnn":
-            model = Anamoly.DeepCNN(LOOKBACK_SIZE,num_of_numerical_features).to(device) # 26    DeepCNN(10, 7).to(device)
+            model = Anamoly.DeepCNN(LOOKBACK_SIZE,num_of_numerical_features, KERNEL_SIZE).to(device) # 26    DeepCNN(10, 7).to(device)
             print(model)
             criterion = torch.nn.MSELoss(reduction='mean')
             optimizer = torch.optim.Adam(list(model.parameters()), lr=1e-5)
@@ -202,7 +207,7 @@ class Anamoly:
         Compute Anamoly Confidence Score
         """
         import pandas as pd
-    
+
         loss_df = pd.DataFrame(loss, columns = ["loss"])
         loss_df.index = T
         loss_df.index = pd.to_datetime(loss_df.index)
@@ -234,7 +239,7 @@ class Anamoly:
         plt.legend()
 
 
-    def explainable_results(specific_prediction_sample_to_explain:int, X, Y, input_label_index_value):  # , anamoly_data
+    def explainable_results(specific_prediction_sample_to_explain:int, X, Y, input_label_index_value, num_labels:int):  # , anamoly_data
         """
         Understand, interpret, and trust the results on the deep models at individual/samples level
         """
@@ -325,7 +330,9 @@ class Anamoly:
         Note: The dropdown menu can easily be replaced by manually setting the index on the label to explain.
         '''
         # Create the list of all labels for the drop down list
-        label_cols = ['window_diff_0', 'window_diff_1', 'window_diff_2', 'window_diff_3', 'window_diff_4', 'window_diff_5', 'window_diff_6']
+        #label_cols = ['window_diff_0', 'window_diff_1', 'window_diff_2', 'window_diff_3', 'window_diff_4', 'window_diff_5', 'window_diff_6']
+        label_cols = ['window_diff_'+str(i) for i in range(num_labels)]
+        #print(label_cols)
         df_labels = pd.DataFrame(data = Y, columns = label_cols)
         df_labels.to_csv('y_labels.csv')
         list_of_labels = df_labels.columns.to_list() # Y.columns.to_list()

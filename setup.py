@@ -28,7 +28,7 @@ except Exception:
     logging.warning('Fail load requirements file, so using default ones.')
     install_reqs = []
 
-__version__ = '1.0.8'
+__version__ = '1.0.9'
 
 def readme():
     with open('README.md', 'r', encoding='utf-8') as f:
@@ -39,7 +39,7 @@ setup(
     name='msda',
     version=__version__,
     packages=["msda"],
-    description='MSDA - An open source, low-code time-series multi-sensor data analysis, unsupervised feature selection, unsupervised anomaly detection library in Python.',
+    description='MSDA - An open source, low-code time-series multi-sensor data analysis, unsupervised feature selection, unsupervised anomaly detection & explainable time-series predictor library in Python.',
     long_description = readme(),
     long_description_content_type="text/markdown",
     url='https://github.com/ajayarunachalam/msda',

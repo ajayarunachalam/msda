@@ -14,7 +14,7 @@ From local explanations to global understanding with explainable AI for trees - 
 
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/shap_conceptual.png), Image credits - https://github.com/slundberg/shap
 
-# MSDA 1.0.8
+# MSDA 1.0.9
 
 ## What is MDSA?
 MSDA is an open source `low-code` Multi-Sensor Data Analysis library in Python that aims to reduce the hypothesis to insights cycle time in a time-series multi-sensor data analysis & experiments. It enables users to perform end-to-end proof-of-concept experiments quickly and efficiently. The module identifies events in the multidimensional time series by capturing the variation and trend to establish relationship aimed towards identifying the correlated features helping in feature selection from raw sensor signals. Also, to precisely detect the anomalies in real-time streaming data an unsupervised deep convolutional neural network & also a lstm autoencoders based detectors are designed to run on GPU/CPU. Finally, a game theoretic approach is used to explain the output of the built anomaly detector model. 
@@ -77,7 +77,7 @@ $ python setup.py install
 ```
 Follow the rest as demonstrated in the demo example for Unsupervised Feature Selection [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo.ipynb
 
-Follow the rest as demonstrated in the demo example for Unsupervised Deep Anomaly Detectors & Time series predictor as Explainable AI [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo1.ipynb
+Follow the rest as demonstrated in the demo example for Unsupervised Deep Anomaly Detectors & Time series predictor as Explainable AI [here] -- https://github.com/ajayarunachalam/msda/blob/main/demo1_v1.ipynb
 
 ## Dependencies
 Most of the dependencies are installed automatically. But, if not installed when you install MSDA, then these dependencies must be installed as shown below.
@@ -102,7 +102,7 @@ Installation is only supported on 64-bit version of Python. Tested on numpy vers
 
 ## Important Links
 - Example Unsupervised Feature Selection Demo Notebook : https://github.com/ajayarunachalam/msda/blob/main/demo.ipynb
-- Example Unsupervised Anomaly Detector & Explainable AI Demo Notebook : https://github.com/ajayarunachalam/msda/blob/main/demo1.ipynb
+- Example Unsupervised Anomaly Detector & Explainable AI Demo Notebook : https://github.com/ajayarunachalam/msda/blob/main/demo1_v1.ipynb
 
 
 ## Who should use MSDA?
