@@ -149,7 +149,7 @@ class Anamoly:
         return train_step
 
 
-    def compute(X,Y, LOOKBACK_SIZE, num_of_numerical_features:int, MODEL_SELECTED=MODEL_SELECTED, KERNEL_SIZE=KERNEL_SIZE):
+    def compute(X,Y, LOOKBACK_SIZE, num_of_numerical_features:int, epocs:int, MODEL_SELECTED=MODEL_SELECTED, KERNEL_SIZE=KERNEL_SIZE):
         """
             Computation : Find Anomaly using model based computation 
         """
@@ -166,7 +166,7 @@ class Anamoly:
             train_data = torch.utils.data.TensorDataset(torch.tensor(X.astype(np.float32)), torch.tensor(X.astype(np.float32)))
             train_loader = torch.utils.data.DataLoader(dataset=train_data, batch_size=32, shuffle=False)
             train_step = Anamoly.make_train_step(model, criterion, optimizer)
-            for epoch in range(30):
+            for epoch in range(epocs):
                 loss_sum = 0.0
                 ctr = 0
                 for x_batch, y_batch in train_loader:
@@ -186,7 +186,7 @@ class Anamoly:
             train_data = torch.utils.data.TensorDataset(torch.tensor(X.astype(np.float32)), torch.tensor(Y.astype(np.float32)))
             train_loader = torch.utils.data.DataLoader(dataset=train_data, batch_size=32, shuffle=False)
             train_step = Anamoly.make_train_step(model, criterion, optimizer)
-            for epoch in range(30):
+            for epoch in range(epocs):
                 loss_sum = 0.0
                 ctr = 0
                 for x_batch, y_batch in train_loader:
