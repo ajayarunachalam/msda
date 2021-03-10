@@ -1,10 +1,3 @@
-
-# coding: utf-8
-
-# In[6]:
-
-
-
 class FeatureSelection:
 
     time_min = globals()

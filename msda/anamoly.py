@@ -10,7 +10,8 @@ class Anamoly:
 
     def set_config(**kwargs):
         """
-        Select Model & Window Size : Function to select models from Deep CNN & LSTMAE with Possible Values ['deepcnn', 'lstmaenn'], time window size and kernel size
+        Select Model & Window Size : Function to select models from Deep CNN & LSTMAE with Possible Values ['deepcnn', 'lstmaenn'], 
+        time window size and kernel size
         """
         for key, value in kwargs.items():
             print("{0} = {1}".format(key, value))

@@ -14,10 +14,10 @@ From local explanations to global understanding with explainable AI for trees - 
 
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/shap_conceptual.png), Image credits - https://github.com/slundberg/shap
 
-# MSDA 1.0.9
+# MSDA 1.10.0
 
 ## What is MDSA?
-MSDA is an open source `low-code` Multi-Sensor Data Analysis library in Python that aims to reduce the hypothesis to insights cycle time in a time-series multi-sensor data analysis & experiments. It enables users to perform end-to-end proof-of-concept experiments quickly and efficiently. The module identifies events in the multidimensional time series by capturing the variation and trend to establish relationship aimed towards identifying the correlated features helping in feature selection from raw sensor signals. Also, to precisely detect the anomalies in real-time streaming data an unsupervised deep convolutional neural network & also a lstm autoencoders based detectors are designed to run on GPU/CPU. Finally, a game theoretic approach is used to explain the output of the built anomaly detector model. 
+MSDA is an open source `low-code` Multi-Sensor Data Analysis library in Python that aims to reduce the hypothesis to insights cycle time in a time-series multi-sensor data analysis & experiments. It enables users to perform end-to-end proof-of-concept experiments quickly and efficiently. The module identifies events in the multidimensional time series by capturing the variation and trend to establish relationship aimed towards identifying the correlated features helping in feature selection from raw sensor signals. Also, it provides a provision to precisely detect the anomalies in real-time streaming data an unsupervised deep convolutional neural network & also a lstm autoencoders based detectors are designed to run on GPU/CPU. Finally, a game theoretic approach is used to explain the output of the built anomaly detector model. 
 
 
 The package includes:-
@@ -35,7 +35,7 @@ The package includes:-
     e) Growth or decay.
     f) Rate of growth or decay.
     g) Count of values above or below a threshold value.
-8) ** Unsupervised time-series anomaly detector. **
+8) ** Unsupervised deep time-series anomaly detector. **
 9) ** Game theoretic approach to explain the time-series data model. **
 
 
@@ -58,6 +58,14 @@ MSDA is `simple`, `easy to use` and `low-code`.
 ** LSTM Autoencoder **
 
 ![alt text](https://github.com/ajayarunachalam/msda/blob/main/lstm_ae.png) inspiration from here - https://arxiv.org/pdf/1809.10717.pdf
+
+## Features Coming Soon***
+
+1) Explainable Forecasting.
+2) ACF/PACF Analysis.
+3) Detection of False Trading Strategies Using Deep Unsupervised/Reinforcement Learning Methods.
+4) Optimization of the Trading Strategies (Long & Short Term) to maximize profit decision making.
+4) 3D Distribution Maps for MOX gas sensor signals.
 
 ## Installation
 The easiest way to install msda is using pip. 
