@@ -57,7 +57,7 @@ MSDA is `simple`, `easy to use` and `low-code`.
 
 ** LSTM Autoencoder **
 
-![alt text](https://github.com/ajayarunachalam/msda/blob/main/lstm_ae.png) inspiration from here - https://arxiv.org/pdf/1809.10717.pdf
+![alt text](https://github.com/ajayarunachalam/msda/blob/main/lstm_ae.png) inspiration from here - https://www.nature.com/articles/s41598-019-55320-6
 
 ## Features Coming Soon***
 
