@@ -2,7 +2,11 @@
 
 pypi: https://pypi.org/project/msda/
 
-Prototype for unsupervised feature selection and/or unsupervised deep convolutional neural network & lstm autoencoders based real-time anomaly detection from high-dimensional heterogeneous/homogeneous time series multi-sensor data. Prototype of Explainable AI for the built time-series predictor.
+Related Blogs: https://towardsdatascience.com/explainable-ai-xai-design-for-unsupervised-deep-anomaly-detector-6bd1275ed3fc
+
+               https://ajay-arunachalam08.medium.com/multi-dimensional-time-series-data-analysis-unsupervised-feature-selection-with-msda-package-430900a3829a
+
+MSDA is a prototype for unsupervised feature selection and/or unsupervised deep convolutional neural network & lstm autoencoders based real-time anomaly detection from high-dimensional heterogeneous/homogeneous time series multi-sensor data. It also includes a module of Explainable AI for the built time-series anomaly predictor.
 
 Intuitive representation of the unsupervised feature selection is as shown below.
 
